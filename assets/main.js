@@ -1,5 +1,35 @@
 ///////////Functions
 // funzione per selezionare il livello
+/* function generateBombs(grid_cells) {
+    // creare un array vuota
+    const bombs = []
+    // ciclare finche la lunghezza dell'array bombs non é 16
+    while (bombs.length < 16) {
+        //console.log(bombs);
+        // genera un numero casuale tra un min e max
+        const randomNumber = getRandomNumber(1, grid_cells)
+        // verifica se il numero non é giá incluso e inseriscilo tra le bombe
+        if (!bombs.includes(randomNumber)) {
+            console.log('Add a bomb');
+            bombs.push(randomNumber)
+        }
+    } */
+
+//Funzione per fenerare bombe random
+function bombGenerator(cellsNumber) {
+    //creare un array che dovra contenere le bombe
+    let bombs = []
+    //creare un ciclo della durata di 16 (bombe che dovranno essere inserite)
+    while (bombs.length < 16) {
+        const randomNumber = Math.floor(Math.random() * (16 - 1 + 1)) + 1;
+        //se il numero generato è gia incluso con .includes()
+        if (!bombs.includes(randomNumber)) {
+            bombs.push(randomNumber)
+            console.log(bombs)
+        }
+
+    }
+}
 
 //Funzione per creare celle
 function createCellGrid(container, cellsNumber, cellsInline) {
@@ -11,21 +41,20 @@ function createCellGrid(container, cellsNumber, cellsInline) {
         //creare elemento
         let cell = document.createElement("div")
         //let cell1 = `<div style="width: calc(100% / ${cellsInline}) ; height: calc(100% / ${cellsInline})" class="cell"> <span>${i}</span> </div>`
-        console.log(cell)
+       // console.log(cell)
         cell.className = "cell"
         // definire misura della cella
         cell.style.cssText = `width: calc(100% / ${cellsInline}) ; height: calc(100% / ${cellsInline}) ;`
         container.append(cell)
         let text = `<span>${i}</span>`
         cell.innerHTML = text
-        console.log(cell)
+        //console.log(cell)
         cell.addEventListener("click", function () {
             this.style.backgroundColor = "blue"
 
         })
     }
 }
-
 
 //costante per selezionare il bottone nella DOM
 const BtnElement = document.getElementById("choi_btn")
@@ -53,6 +82,8 @@ BtnElement.addEventListener('click', function () {
     let container = document.querySelector(".container")
 
     createCellGrid(container, cellsNumber, cellsInline)
+
+    bombGenerator(cellsNumber)
 })
 
 
