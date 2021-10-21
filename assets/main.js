@@ -1,19 +1,6 @@
 ///////////Functions
 // funzione per selezionare il livello
-/* function generateBombs(grid_cells) {
-    // creare un array vuota
-    const bombs = []
-    // ciclare finche la lunghezza dell'array bombs non é 16
-    while (bombs.length < 16) {
-        //console.log(bombs);
-        // genera un numero casuale tra un min e max
-        const randomNumber = getRandomNumber(1, grid_cells)
-        // verifica se il numero non é giá incluso e inseriscilo tra le bombe
-        if (!bombs.includes(randomNumber)) {
-            console.log('Add a bomb');
-            bombs.push(randomNumber)
-        }
-    } */
+
 
 //Funzione per fenerare bombe random
 function bombGenerator(cellsNumber) {
